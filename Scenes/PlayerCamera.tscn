@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1rokyjabdcmy"]
+
+[ext_resource type="Environment" uid="uid://b5andma12ufr6" path="res://Scenes/Maps/TestEnvironment.tres" id="1_h1vno"]
+
+[node name="PlayerCamera" type="Camera3D"]
+environment = ExtResource("1_h1vno")
+current = true

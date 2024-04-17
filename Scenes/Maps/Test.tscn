@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://5dnjijmsxy6r"]
+
+[ext_resource type="PackedScene" uid="uid://cl22qxswjq6fr" path="res://Scenes/Entities/PlayerRobot.tscn" id="1_5qtwr"]
+[ext_resource type="Environment" uid="uid://b5andma12ufr6" path="res://Scenes/Maps/TestEnvironment.tres" id="2_i8rp2"]
+[ext_resource type="Texture2D" uid="uid://bm4tcwqpmsbwn" path="res://Assets/Textures/Ground037_4K-PNG/Ground037_4K-PNG_Color.png" id="3_c3sfl"]
+[ext_resource type="PackedScene" uid="uid://b8foaick8hcot" path="res://Scenes/Entities/EnemyRobot.tscn" id="4_lmgdk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0x8l"]
+albedo_texture = ExtResource("3_c3sfl")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5q0ne"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vqvvp"]
+size = Vector3(2.04199, 0.00683594, 1.99194)
+
+[node name="Test" type="Node3D"]
+
+[node name="PlayerRobot" parent="." instance=ExtResource("1_5qtwr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 28.912, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_i8rp2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(34.7135, 0, 0, 0, 1, 0, 0, 0, 31.7758, 0, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="StaticBody3D"]
+material_override = SubResource("StandardMaterial3D_s0x8l")
+mesh = SubResource("PlaneMesh_5q0ne")
+
+[node name="Collider" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_vqvvp")
+
+[node name="EnemyRobot" parent="." instance=ExtResource("4_lmgdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7732, 2.83434, -18.0192)
+
+[node name="EnemyRobot4" parent="." instance=ExtResource("4_lmgdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7732, 2.83434, -6.69037)
+
+[node name="EnemyRobot6" parent="." instance=ExtResource("4_lmgdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.60326, 2.83434, -6.09769)
+
+[node name="EnemyRobot7" parent="." instance=ExtResource("4_lmgdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4059, 2.83434, -6.09769)
+
+[node name="EnemyRobot8" parent="." instance=ExtResource("4_lmgdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5024, 2.83434, -6.09769)
+
+[node name="EnemyRobot5" parent="." instance=ExtResource("4_lmgdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2637, 2.83434, -7.20701)
+
+[node name="EnemyRobot2" parent="." instance=ExtResource("4_lmgdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7155, 3.01063, -18.192)
+
+[node name="EnemyRobot3" parent="." instance=ExtResource("4_lmgdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.00821, 3.16681, -18.192)

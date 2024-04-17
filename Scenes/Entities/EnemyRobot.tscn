@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8foaick8hcot"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyRobot.gd" id="1_apst1"]
+[ext_resource type="PackedScene" uid="uid://c5w3jgi5kakkd" path="res://Scenes/UI/EnemyRobotHeadStatus.tscn" id="2_wjvai"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vs6dq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xmx3m"]
+radius = 1.0
+height = 4.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_rmk8n"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qhnqj"]
+viewport_path = NodePath("StatusViewport")
+
+[node name="EnemyRobot" type="CharacterBody3D"]
+script = ExtResource("1_apst1")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_vs6dq")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_xmx3m")
+
+[node name="GunMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.209556, 0, 0, 0, 0.224569, 0, 0, 0, 3.29682, 0, 0.732779, -1.37452)
+mesh = SubResource("BoxMesh_rmk8n")
+
+[node name="BulletSpawnMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.747905, -3.54339)
+
+[node name="StatusViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(1152, 512)
+
+[node name="EnemyRobotHeadStatus" parent="StatusViewport" instance=ExtResource("2_wjvai")]
+
+[node name="HeadStatusSprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.401584, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.99317, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_qhnqj")

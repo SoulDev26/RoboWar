@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl22qxswjq6fr"]
+
+[ext_resource type="Script" path="res://Scripts/Robot.gd" id="1_g47va"]
+[ext_resource type="PackedScene" uid="uid://b1rokyjabdcmy" path="res://Scenes/PlayerCamera.tscn" id="2_fc2i1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vs6dq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xmx3m"]
+radius = 1.0
+height = 4.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_rmk8n"]
+
+[node name="PlayerRobot" type="CharacterBody3D"]
+script = ExtResource("1_g47va")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_vs6dq")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_xmx3m")
+
+[node name="GunMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.209556, 0, 0, 0, 0.224569, 0, 0, 0, 3.29682, 0, 0.732779, -1.37452)
+mesh = SubResource("BoxMesh_rmk8n")
+
+[node name="BulletSpawnMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.747905, -3.54339)
+
+[node name="PlayerCamera" parent="." instance=ExtResource("2_fc2i1")]
+transform = Transform3D(1, 0, 0, 0, 0.987535, 0.1574, 0, -0.1574, 0.987535, 0, 5.60964, 8.05194)
+
+[node name="AmmoRefillTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+
+[node name="AmmoRefillDelayTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
+
+[connection signal="timeout" from="AmmoRefillTimer" to="." method="_on_ammo_refill_timer_timeout"]
+[connection signal="timeout" from="AmmoRefillDelayTimer" to="." method="_on_ammo_refill_delay_timer_timeout"]
