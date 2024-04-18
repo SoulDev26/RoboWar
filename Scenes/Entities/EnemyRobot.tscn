@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b8foaick8hcot"]
 
-[ext_resource type="Script" path="res://Scripts/EnemyRobot.gd" id="1_apst1"]
+[ext_resource type="Script" path="res://Scripts/Entities/EnemyRobot.gd" id="1_nwd8b"]
 [ext_resource type="PackedScene" uid="uid://c5w3jgi5kakkd" path="res://Scenes/UI/EnemyRobotHeadStatus.tscn" id="2_wjvai"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vs6dq"]
@@ -15,7 +15,7 @@ height = 4.0
 viewport_path = NodePath("StatusViewport")
 
 [node name="EnemyRobot" type="CharacterBody3D"]
-script = ExtResource("1_apst1")
+script = ExtResource("1_nwd8b")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

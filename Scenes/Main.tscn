@@ -1,14 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmwxa77j0tago"]
+[gd_scene load_steps=3 format=3 uid="uid://dmwxa77j0tago"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_fwjew"]
-[ext_resource type="PackedScene" uid="uid://5dnjijmsxy6r" path="res://Scenes/Maps/Test.tscn" id="2_lvbnw"]
-[ext_resource type="PackedScene" uid="uid://vw0r2i5jj66v" path="res://Scenes/UI/PlayerHUD.tscn" id="3_qvsmn"]
+[ext_resource type="PackedScene" uid="uid://c84pxban8e6rp" path="res://Scenes/UI/Lobby/Lobby.tscn" id="3_7evt6"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_fwjew")
 
-[node name="Map" parent="." instance=ExtResource("2_lvbnw")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PlayerHud" parent="CanvasLayer" instance=ExtResource("3_qvsmn")]
+[node name="Lobby" parent="." instance=ExtResource("3_7evt6")]

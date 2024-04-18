@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bl6qo72evabdk"]
+
+[ext_resource type="FontFile" uid="uid://bvw01w1r15kis" path="res://Assets/Fonts/Rubik-Bold.ttf" id="1_utd8w"]
+
+[resource]
+default_font = ExtResource("1_utd8w")
+default_font_size = 60

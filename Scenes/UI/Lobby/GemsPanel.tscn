@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://eebsb4sedef1"]
+
+[ext_resource type="Texture2D" uid="uid://clvtqqdphs6by" path="res://Assets/lobby screen/bg_coin_or_brilliants.png" id="1_01o5c"]
+[ext_resource type="Theme" uid="uid://bl6qo72evabdk" path="res://Scenes/DefaultUITheme.tres" id="1_e3lfj"]
+[ext_resource type="Texture2D" uid="uid://cbx1itbmggyp6" path="res://Assets/lobby screen/ico_pluse.png" id="2_m0xpb"]
+[ext_resource type="Texture2D" uid="uid://dmutjr5uwhrl4" path="res://Assets/lobby screen/ico_brilliants.png" id="3_73jvq"]
+
+[node name="GemsPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1027.0
+offset_bottom = -612.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_e3lfj")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 19.0
+offset_top = 2.0
+offset_right = 207.0
+offset_bottom = 57.0
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("1_01o5c")
+
+[node name="AddButton" type="TextureButton" parent="."]
+offset_left = 99.0
+offset_top = 6.0
+offset_right = 139.0
+offset_bottom = 46.0
+scale = Vector2(0.55, 0.55)
+texture_normal = ExtResource("2_m0xpb")
+
+[node name="Icon" type="TextureRect" parent="."]
+offset_right = 72.0
+offset_bottom = 72.0
+scale = Vector2(0.496871, 0.496871)
+texture = ExtResource("3_73jvq")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 37.0
+offset_top = 5.0
+offset_right = 96.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 20
+text = "34"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://vw0r2i5jj66v"]
 
-[ext_resource type="Script" path="res://Scripts/PlayerHUD.gd" id="1_fgpr7"]
+[ext_resource type="Script" path="res://Scripts/UI/PlayerHUD.gd" id="1_icsvr"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_j6dcv"]
 color = Color(0, 0.984314, 0.541176, 1)
@@ -15,14 +15,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_fgpr7")
+script = ExtResource("1_icsvr")
 
 [node name="AmmoBar" type="ProgressBar" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 504.0
 offset_top = 611.0
-offset_right = 646.0
-offset_bottom = 638.0
+offset_right = -506.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/fill = SubResource("StyleBoxLine_j6dcv")
 value = 100.0
 rounded = true

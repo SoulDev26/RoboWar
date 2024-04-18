@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl22qxswjq6fr"]
+[gd_scene load_steps=8 format=3 uid="uid://cl22qxswjq6fr"]
 
-[ext_resource type="Script" path="res://Scripts/Robot.gd" id="1_g47va"]
+[ext_resource type="Script" path="res://Scripts/Entities/Robot.gd" id="1_bl30l"]
 [ext_resource type="PackedScene" uid="uid://b1rokyjabdcmy" path="res://Scenes/PlayerCamera.tscn" id="2_fc2i1"]
+[ext_resource type="PackedScene" uid="uid://vw0r2i5jj66v" path="res://Scenes/UI/PlayerHUD.tscn" id="3_xhajx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vs6dq"]
 
@@ -11,8 +12,11 @@ height = 4.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_rmk8n"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_5ywin"]
+viewport_path = NodePath("PlayerCamera/HUDViewport")
+
 [node name="PlayerRobot" type="CharacterBody3D"]
-script = ExtResource("1_g47va")
+script = ExtResource("1_bl30l")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -29,7 +33,18 @@ mesh = SubResource("BoxMesh_rmk8n")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.747905, -3.54339)
 
 [node name="PlayerCamera" parent="." instance=ExtResource("2_fc2i1")]
-transform = Transform3D(1, 0, 0, 0, 0.987535, 0.1574, 0, -0.1574, 0.987535, 0, 5.60964, 8.05194)
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 17.811, 0.436)
+
+[node name="HUDSprite" type="Sprite3D" parent="PlayerCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.505, -4.885)
+texture = SubResource("ViewportTexture_5ywin")
+
+[node name="HUDViewport" type="SubViewport" parent="PlayerCamera"]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(1152, 648)
+
+[node name="PlayerHud" parent="PlayerCamera/HUDViewport" instance=ExtResource("3_xhajx")]
 
 [node name="AmmoRefillTimer" type="Timer" parent="."]
 process_callback = 0

@@ -1,0 +1,295 @@
+[gd_scene load_steps=19 format=3 uid="uid://c84pxban8e6rp"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Lobby/Lobby.gd" id="1_e4hdl"]
+[ext_resource type="Texture2D" uid="uid://owqv61ysee1b" path="res://Assets/lobby screen/backgound.png" id="1_jyasu"]
+[ext_resource type="Theme" uid="uid://bl6qo72evabdk" path="res://Scenes/DefaultUITheme.tres" id="1_u0csj"]
+[ext_resource type="Texture2D" uid="uid://b15t4f32sfnjx" path="res://Assets/lobby screen/button_start.png" id="2_ltvxu"]
+[ext_resource type="Texture2D" uid="uid://dk34211wtpisu" path="res://Assets/lobby screen/button_robots.png" id="3_eykh6"]
+[ext_resource type="Texture2D" uid="uid://d4h6tijk5xajn" path="res://Assets/lobby screen/button_robots_buy.png" id="4_xhno0"]
+[ext_resource type="Texture2D" uid="uid://djpner2d6m4uk" path="res://Assets/lobby screen/button_shop.png" id="5_h8tg2"]
+[ext_resource type="Texture2D" uid="uid://2n83g6wxpn50" path="res://Assets/lobby screen/robots_ico.png" id="6_p6kf0"]
+[ext_resource type="Texture2D" uid="uid://cujtkb1c0yq7p" path="res://Assets/lobby screen/ico_spawnpoint.png" id="6_ulj4x"]
+[ext_resource type="Texture2D" uid="uid://clvtqqdphs6by" path="res://Assets/lobby screen/bg_coin_or_brilliants.png" id="7_wduf3"]
+[ext_resource type="Texture2D" uid="uid://cbx1itbmggyp6" path="res://Assets/lobby screen/ico_pluse.png" id="8_tlbi2"]
+[ext_resource type="Texture2D" uid="uid://dpihy23485xkx" path="res://Assets/lobby screen/ico_gold.png" id="8_uedj7"]
+[ext_resource type="Texture2D" uid="uid://dmutjr5uwhrl4" path="res://Assets/lobby screen/ico_brilliants.png" id="9_vou7s"]
+[ext_resource type="PackedScene" uid="uid://eebsb4sedef1" path="res://Scenes/UI/Lobby/GemsPanel.tscn" id="10_pldvh"]
+[ext_resource type="Texture2D" uid="uid://b75pbt0ckn2wi" path="res://Assets/lobby screen/ico_shop.png" id="10_vqghp"]
+[ext_resource type="PackedScene" uid="uid://u257synkqo0e" path="res://Scenes/UI/Lobby/CoinsPanel.tscn" id="11_46cyf"]
+[ext_resource type="PackedScene" uid="uid://bl827jgast0ob" path="res://Scenes/UI/Lobby/RangPanel.tscn" id="12_1igxt"]
+[ext_resource type="Texture2D" uid="uid://71tpyv15dgaq" path="res://Assets/lobby screen/ico_войти.png" id="13_p3pjr"]
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_u0csj")
+script = ExtResource("1_e4hdl")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.60054, 0.60054)
+texture = ExtResource("1_jyasu")
+
+[node name="StartButton" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 86.0
+offset_top = 517.0
+offset_right = 393.0
+offset_bottom = 657.0
+scale = Vector2(0.55, 0.55)
+texture_normal = ExtResource("2_ltvxu")
+
+[node name="Label" type="Label" parent="StartButton"]
+layout_mode = 0
+offset_right = 307.0
+offset_bottom = 140.0
+text = "$begin"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RobotsButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 569.0
+offset_top = 517.0
+offset_right = 765.0
+offset_bottom = 657.0
+scale = Vector2(0.55, 0.55)
+texture_normal = ExtResource("3_eykh6")
+
+[node name="Label" type="Label" parent="RobotsButton"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 73.0
+offset_right = 284.0
+offset_bottom = 145.0
+scale = Vector2(0.689168, 0.689168)
+text = "$robot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="RobotsButton"]
+layout_mode = 0
+offset_left = 65.4545
+offset_top = 14.5455
+offset_right = 125.455
+offset_bottom = 74.5455
+texture = ExtResource("6_p6kf0")
+
+[node name="RobotsBuyButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 698.0
+offset_top = 517.0
+offset_right = 1005.0
+offset_bottom = 657.0
+scale = Vector2(0.55, 0.55)
+texture_normal = ExtResource("4_xhno0")
+
+[node name="RobotIcon" type="TextureRect" parent="RobotsBuyButton"]
+layout_mode = 0
+offset_left = 38.1819
+offset_top = 21.8182
+offset_right = 123.182
+offset_bottom = 108.818
+texture = ExtResource("6_p6kf0")
+
+[node name="CoinIcon" type="TextureRect" parent="RobotsBuyButton"]
+layout_mode = 0
+offset_left = 181.818
+offset_top = 14.5454
+offset_right = 274.818
+offset_bottom = 107.545
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("8_uedj7")
+
+[node name="CoinsLabel" type="Label" parent="RobotsBuyButton"]
+layout_mode = 0
+offset_left = 176.364
+offset_top = 70.9091
+offset_right = 284.364
+offset_bottom = 142.909
+scale = Vector2(0.6, 0.6)
+text = "156"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShopButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 890.0
+offset_top = 517.0
+offset_right = 1086.0
+offset_bottom = 657.0
+scale = Vector2(0.55, 0.55)
+texture_normal = ExtResource("5_h8tg2")
+
+[node name="Icon" type="TextureRect" parent="ShopButton"]
+layout_mode = 0
+offset_left = 65.4545
+offset_top = 21.8182
+offset_right = 125.455
+offset_bottom = 81.8182
+texture = ExtResource("10_vqghp")
+
+[node name="Label" type="Label" parent="ShopButton"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 82.0
+offset_right = 352.0
+offset_bottom = 154.0
+scale = Vector2(0.55, 0.55)
+text = "$shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RobotsContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 148.0
+offset_right = 1403.0
+offset_bottom = 621.0
+scale = Vector2(0.55, 0.55)
+theme_override_constants/h_separation = 31
+theme_override_constants/v_separation = 100
+columns = 4
+
+[node name="RobotButton1" type="TextureButton" parent="RobotsContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_ulj4x")
+
+[node name="RobotButton2" type="TextureButton" parent="RobotsContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_ulj4x")
+
+[node name="RobotButton3" type="TextureButton" parent="RobotsContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_ulj4x")
+
+[node name="RobotButton4" type="TextureButton" parent="RobotsContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_ulj4x")
+
+[node name="RobotButton5" type="TextureButton" parent="RobotsContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_ulj4x")
+
+[node name="RobotButton6" type="TextureButton" parent="RobotsContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_ulj4x")
+
+[node name="RobotButton7" type="TextureButton" parent="RobotsContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_ulj4x")
+
+[node name="RobotButton8" type="TextureButton" parent="RobotsContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_ulj4x")
+
+[node name="RobotButton9" type="TextureButton" parent="RobotsContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_ulj4x")
+
+[node name="RobotButton10" type="TextureButton" parent="RobotsContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_ulj4x")
+
+[node name="RobotButton11" type="TextureButton" parent="RobotsContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_ulj4x")
+
+[node name="RobotButton12" type="TextureButton" parent="RobotsContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_ulj4x")
+
+[node name="Coins" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 853.0
+offset_top = 20.0
+offset_right = 893.0
+offset_bottom = 60.0
+
+[node name="Gems" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 891.0
+offset_top = 15.0
+offset_right = 994.0
+offset_bottom = 45.0
+
+[node name="Background" type="TextureRect" parent="Gems"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("7_wduf3")
+
+[node name="AddButton" type="TextureButton" parent="Gems"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 4.0
+offset_right = 120.0
+offset_bottom = 44.0
+scale = Vector2(0.55, 0.55)
+texture_normal = ExtResource("8_tlbi2")
+
+[node name="Icon" type="TextureRect" parent="Gems"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -2.0
+offset_right = 53.0
+offset_bottom = 70.0
+scale = Vector2(0.496871, 0.496871)
+texture = ExtResource("9_vou7s")
+
+[node name="Label" type="Label" parent="Gems"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 3.0
+offset_right = 77.0
+offset_bottom = 26.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GemsPanel" parent="." instance=ExtResource("10_pldvh")]
+layout_mode = 1
+offset_left = 876.0
+offset_top = 18.0
+offset_right = -151.0
+offset_bottom = -594.0
+
+[node name="CoinsPanel" parent="." instance=ExtResource("11_46cyf")]
+layout_mode = 1
+offset_left = 734.0
+offset_top = 19.0
+offset_right = -293.0
+offset_bottom = -593.0
+
+[node name="RangPanel" parent="." instance=ExtResource("12_1igxt")]
+layout_mode = 1
+offset_left = 170.0
+offset_right = -506.0
+
+[node name="SignInButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 27.0
+offset_right = 260.0
+offset_bottom = 132.0
+scale = Vector2(0.55, 0.55)
+texture_normal = ExtResource("13_p3pjr")
+
+[node name="Label" type="Label" parent="SignInButton"]
+layout_mode = 0
+offset_top = 65.0
+offset_right = 370.0
+offset_bottom = 137.0
+scale = Vector2(0.388586, 0.388586)
+text = "$sign_in"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
