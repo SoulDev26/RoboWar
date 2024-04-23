@@ -1,14 +1,18 @@
 extends Control
 
-@onready var playerNode = $'../../..'
+@onready var playerNode = $'../..'
 
 func _ready() -> void:
-	playerNode.connect('AmmoChanged', _OnAmmoChanged)
+	playerNode.connect('EnergyChanged', _OnAmmoChanged)
 
 
 func _process(delta: float) -> void:
-	pass
+	var text = ''
+	for enemy in playerNode.capturableEnemies:
+		text += enemy.name + '\n'
+		
+	$CapturedEnemies.text = text
 
 
 func _OnAmmoChanged(ammo: int) -> void:
-	$AmmoBar.value = ammo / (playerNode.MAX_AMMO / 100.0)
+	$AmmoBar.value = ammo / (playerNode.MAX_ENERGY / 100.0)

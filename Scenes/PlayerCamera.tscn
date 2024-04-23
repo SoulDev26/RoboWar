@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1rokyjabdcmy"]
+[gd_scene load_steps=3 format=3 uid="uid://b1rokyjabdcmy"]
 
 [ext_resource type="Environment" uid="uid://b5andma12ufr6" path="res://Scenes/Maps/TestEnvironment.tres" id="1_h1vno"]
+[ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="2_5v38p"]
 
 [node name="PlayerCamera" type="Camera3D"]
 environment = ExtResource("1_h1vno")
 current = true
+script = ExtResource("2_5v38p")

@@ -58,6 +58,10 @@ left={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [internationalization]
 
 locale/translations=PackedStringArray("res://Locales.en.translation", "res://Locales.ru.translation")
@@ -69,3 +73,4 @@ locale/translations=PackedStringArray("res://Locales.en.translation", "res://Loc
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

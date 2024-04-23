@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://vw0r2i5jj66v"]
+[gd_scene load_steps=5 format=3 uid="uid://vw0r2i5jj66v"]
 
 [ext_resource type="Script" path="res://Scripts/UI/PlayerHUD.gd" id="1_icsvr"]
+[ext_resource type="PackedScene" uid="uid://r35v04rpmmlm" path="res://Scenes/UI/MovementJoystick.tscn" id="2_dvwrs"]
+[ext_resource type="PackedScene" uid="uid://bu4jmvbrayfa2" path="res://Scenes/UI/FireJoystick.tscn" id="3_5s23l"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_j6dcv"]
 color = Color(0, 0.984314, 0.541176, 1)
@@ -32,3 +34,24 @@ theme_override_styles/fill = SubResource("StyleBoxLine_j6dcv")
 value = 100.0
 rounded = true
 show_percentage = false
+
+[node name="CapturedEnemies" type="Label" parent="."]
+layout_mode = 0
+offset_left = 895.0
+offset_top = 52.0
+offset_right = 1099.0
+offset_bottom = 100.0
+
+[node name="MovementJoystick" parent="." instance=ExtResource("2_dvwrs")]
+layout_mode = 1
+offset_left = 79.0
+offset_top = 411.0
+offset_right = -923.0
+offset_bottom = -87.0
+
+[node name="FireJoystick" parent="." instance=ExtResource("3_5s23l")]
+layout_mode = 1
+offset_left = 914.0
+offset_top = 410.0
+offset_right = -88.0
+offset_bottom = -88.0

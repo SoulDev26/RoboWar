@@ -1,50 +1,44 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl22qxswjq6fr"]
+[gd_scene load_steps=10 format=3 uid="uid://cl22qxswjq6fr"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/Robot.gd" id="1_bl30l"]
-[ext_resource type="PackedScene" uid="uid://b1rokyjabdcmy" path="res://Scenes/PlayerCamera.tscn" id="2_fc2i1"]
-[ext_resource type="PackedScene" uid="uid://vw0r2i5jj66v" path="res://Scenes/UI/PlayerHUD.tscn" id="3_xhajx"]
+[ext_resource type="PackedScene" uid="uid://vw0r2i5jj66v" path="res://Scenes/UI/PlayerHUD.tscn" id="2_tf03u"]
+[ext_resource type="PackedScene" uid="uid://hkld5501xlg6" path="res://Assets/Meshes/Mech/mech_ready.glb" id="3_hkxtf"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vs6dq"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xmx3m"]
-radius = 1.0
-height = 4.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dvev"]
+size = Vector3(13.0875, 4.58099, 10.4629)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rmk8n"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5ywin"]
-viewport_path = NodePath("PlayerCamera/HUDViewport")
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3apai"]
+radius = 16.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8iqqk"]
+size = Vector3(8.06256, 8.81592, 6.35361)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sb2n6"]
+size = Vector2(2, 20)
 
 [node name="PlayerRobot" type="CharacterBody3D"]
 script = ExtResource("1_bl30l")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="OldMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_vs6dq")
 
-[node name="Collider" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_xmx3m")
+[node name="TopCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.035675, 9.59728, 2.45357)
+shape = SubResource("BoxShape3D_6dvev")
 
 [node name="GunMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.209556, 0, 0, 0, 0.224569, 0, 0, 0, 3.29682, 0, 0.732779, -1.37452)
+visible = false
 mesh = SubResource("BoxMesh_rmk8n")
 
 [node name="BulletSpawnMarker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.747905, -3.54339)
-
-[node name="PlayerCamera" parent="." instance=ExtResource("2_fc2i1")]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 17.811, 0.436)
-
-[node name="HUDSprite" type="Sprite3D" parent="PlayerCamera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.505, -4.885)
-texture = SubResource("ViewportTexture_5ywin")
-
-[node name="HUDViewport" type="SubViewport" parent="PlayerCamera"]
-disable_3d = true
-transparent_bg = true
-size = Vector2i(1152, 648)
-
-[node name="PlayerHud" parent="PlayerCamera/HUDViewport" instance=ExtResource("3_xhajx")]
 
 [node name="AmmoRefillTimer" type="Timer" parent="."]
 process_callback = 0
@@ -54,5 +48,28 @@ wait_time = 2.0
 process_callback = 0
 wait_time = 0.5
 
+[node name="AutoAimZone" type="Area3D" parent="."]
+
+[node name="Collider" type="CollisionShape3D" parent="AutoAimZone"]
+shape = SubResource("CylinderShape3D_3apai")
+
+[node name="PlayerHudCanvas" type="CanvasLayer" parent="."]
+
+[node name="PlayerHud" parent="PlayerHudCanvas" instance=ExtResource("2_tf03u")]
+
+[node name="Model" parent="." instance=ExtResource("3_hkxtf")]
+transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+
+[node name="BottomCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0107117, 3.90796, 0.337513)
+shape = SubResource("BoxShape3D_8iqqk")
+
+[node name="AimLine" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.062, -13.3975)
+visible = false
+mesh = SubResource("PlaneMesh_sb2n6")
+
 [connection signal="timeout" from="AmmoRefillTimer" to="." method="_on_ammo_refill_timer_timeout"]
 [connection signal="timeout" from="AmmoRefillDelayTimer" to="." method="_on_ammo_refill_delay_timer_timeout"]
+[connection signal="body_entered" from="AutoAimZone" to="." method="_on_auto_aim_zone_body_entered"]
+[connection signal="body_exited" from="AutoAimZone" to="." method="_on_auto_aim_zone_body_exited"]

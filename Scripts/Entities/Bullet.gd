@@ -1,7 +1,7 @@
 extends RigidBody3D
 
-const MAX_DISTANCE = 100.0
-const SPEED = 20.0
+var maxDistance = 100.0
+var speed = 20.0
 var startPos: Vector3
 var damage: int = 1
 
@@ -10,11 +10,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if position.distance_to(startPos) >= MAX_DISTANCE:
+	if position.distance_to(startPos) >= maxDistance:
 		queue_free()
 
-func launch(speed: Vector3):
-	linear_velocity = speed * SPEED
+func launch(launchSpeed: Vector3):
+	linear_velocity = launchSpeed * speed
 
 func _on_body_entered(body: Node) -> void:
 	if 'EnemyRobot' in body.name:

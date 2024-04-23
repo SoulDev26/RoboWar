@@ -17,6 +17,7 @@ grow_vertical = 2
 theme = ExtResource("1_xjg2x")
 
 [node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 19.0
 offset_top = 2.0
 offset_right = 207.0
@@ -25,6 +26,7 @@ scale = Vector2(0.55, 0.55)
 texture = ExtResource("1_g0crf")
 
 [node name="AddButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 99.0
 offset_top = 6.0
 offset_right = 139.0
@@ -33,12 +35,14 @@ scale = Vector2(0.55, 0.55)
 texture_normal = ExtResource("2_hjil5")
 
 [node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 72.0
 offset_bottom = 72.0
 scale = Vector2(0.496871, 0.496871)
 texture = ExtResource("3_fsfwk")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 37.0
 offset_top = 5.0
 offset_right = 96.0
