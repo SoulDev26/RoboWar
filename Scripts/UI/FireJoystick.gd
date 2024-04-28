@@ -34,7 +34,7 @@ func _input(event: InputEvent) -> void:
 				$Joystick.position = originalJoystickPos + joystickMoveVec * MAX_MOVE
 
 			IsAttackManual = originalJoystickPos.distance_to(joystickMovePos) >= MIN_MANUAL_JOYSTICK_DIST
-			print(IsAttackManual)
+			#print(IsAttackManual)
 
 func _on_joystick_pressed() -> void:
 	isJoystickActive = true

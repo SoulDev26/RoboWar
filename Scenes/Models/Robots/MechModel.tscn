@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://csfxjwdo3nioy"]
+
+[ext_resource type="PackedScene" uid="uid://cy0qb4gkxplr6" path="res://Assets/Meshes/Mech/mech_ready_animations_new.fbx" id="1_1gx4q"]
+
+[node name="MechModel" instance=ExtResource("1_1gx4q")]
+
+[node name="Skeleton3D" parent="RootNode/Mecha" index="0"]
+bones/5/rotation = Quaternion(-0.00504343, -0.707089, 0.707089, 0.00504317)
+bones/7/rotation = Quaternion(2.56238e-07, 1.24058e-07, 0.935846, -0.352411)
+bones/8/rotation = Quaternion(-3.53973e-07, -4.39418e-08, -0.478118, 0.878296)
+bones/9/rotation = Quaternion(2.92699e-07, 1.4197e-07, 0.793556, 0.608497)
+bones/12/rotation = Quaternion(0.793556, -0.608497, 1.51953e-07, -1.28843e-07)

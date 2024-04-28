@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://mm3hn0x2vfk8"]
+
+[ext_resource type="PackedScene" uid="uid://csfxjwdo3nioy" path="res://Scenes/Models/Robots/MechModel.tscn" id="1_bxjfj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yc4wt"]
+size = Vector3(3.73753, 4.70483, 5.13163)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_btmj3"]
+radius = 20.0
+
+[node name="Mech" type="CharacterBody3D"]
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0367846, 2.42059, 0.823672)
+shape = SubResource("BoxShape3D_yc4wt")
+
+[node name="Model" parent="." instance=ExtResource("1_bxjfj")]
+transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+
+[node name="BulletSpawnMarkers" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -1.77859)
+
+[node name="Marker1" type="Marker3D" parent="BulletSpawnMarkers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.475362, 3.19486, -2.10616)
+
+[node name="Marker2" type="Marker3D" parent="BulletSpawnMarkers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.475362, 3.19486, 2.12962)
+
+[node name="BulletGuidingMarkers" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 3.30295)
+
+[node name="Marker1" type="Marker3D" parent="BulletGuidingMarkers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.475362, 3.19486, -2.10616)
+
+[node name="Marker2" type="Marker3D" parent="BulletGuidingMarkers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.475362, 3.19486, 2.12962)
+
+[node name="AutoAimZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13291, 0)
+
+[node name="Collider" type="CollisionShape3D" parent="AutoAimZone"]
+shape = SubResource("CylinderShape3D_btmj3")
+
+[node name="AmmoRefillTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+
+[node name="AmmoRefillDelayTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
+
+[node name="FireDelayTimer" type="Timer" parent="."]
+process_callback = 0
+one_shot = true

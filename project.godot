@@ -15,9 +15,12 @@ run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Assets="*res://Scripts/Assets.gd"
+
 [display]
 
-window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 

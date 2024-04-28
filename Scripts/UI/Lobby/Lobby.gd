@@ -8,6 +8,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	pass
+	
+func _physics_process(delta: float) -> void:
+	pass #$RobotPreviewViewport/Mech.rotation_degrees.y += 10 * delta
 
 
 func _on_start_button_pressed() -> void:

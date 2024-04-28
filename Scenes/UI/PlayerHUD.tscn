@@ -55,3 +55,4 @@ offset_left = 914.0
 offset_top = 410.0
 offset_right = -88.0
 offset_bottom = -88.0
+MAX_MOVE = 30.0

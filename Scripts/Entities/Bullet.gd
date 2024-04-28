@@ -17,6 +17,6 @@ func launch(launchSpeed: Vector3):
 	linear_velocity = launchSpeed * speed
 
 func _on_body_entered(body: Node) -> void:
-	if 'EnemyRobot' in body.name:
-		body.Hit(damage)
+	if body.has_meta('isEnemy'):
+		body.get_parent().Hit(damage)
 		queue_free()

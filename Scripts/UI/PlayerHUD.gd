@@ -1,13 +1,14 @@
 extends Control
 
-@onready var playerNode = $'../..'
+@onready var playerNode = $'../../Robot'
 
 func _ready() -> void:
 	playerNode.connect('EnergyChanged', _OnAmmoChanged)
 
 
 func _process(delta: float) -> void:
-	var text = ''
+	return
+	var text = str(playerNode.capturableEnemies.size())
 	for enemy in playerNode.capturableEnemies:
 		text += enemy.name + '\n'
 		

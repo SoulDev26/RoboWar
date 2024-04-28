@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c84pxban8e6rp"]
+[gd_scene load_steps=20 format=3 uid="uid://c84pxban8e6rp"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Lobby/Lobby.gd" id="1_e4hdl"]
 [ext_resource type="Texture2D" uid="uid://owqv61ysee1b" path="res://Assets/lobby screen/backgound.png" id="1_jyasu"]
@@ -18,6 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://u257synkqo0e" path="res://Scenes/UI/Lobby/CoinsPanel.tscn" id="11_46cyf"]
 [ext_resource type="PackedScene" uid="uid://bl827jgast0ob" path="res://Scenes/UI/Lobby/RangPanel.tscn" id="12_1igxt"]
 [ext_resource type="Texture2D" uid="uid://71tpyv15dgaq" path="res://Assets/lobby screen/ico_войти.png" id="13_p3pjr"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_uf77g"]
+viewport_path = NodePath("RobotPreviewViewport")
 
 [node name="Lobby" type="Control"]
 layout_mode = 3
@@ -291,5 +294,21 @@ scale = Vector2(0.388586, 0.388586)
 text = "$sign_in"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RobotPreviewSprite" type="Sprite2D" parent="."]
+position = Vector2(178.105, 324.105)
+scale = Vector2(0.6, 0.6)
+texture = SubResource("ViewportTexture_uf77g")
+
+[node name="RobotPreviewViewport" type="SubViewport" parent="."]
+transparent_bg = true
+use_debanding = true
+use_occlusion_culling = true
+scaling_3d_mode = 1
+
+[node name="Camera" type="Camera3D" parent="RobotPreviewViewport"]
+transform = Transform3D(0.0348995, -0.0871026, 0.995588, 0, 0.996195, 0.0871557, -0.999391, -0.00304169, 0.0347667, 1.181, 0.993, -0.035)
+fov = 83.3937
+size = 1.97
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

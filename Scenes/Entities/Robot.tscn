@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvw4e8a65mkw5"]
+
+[ext_resource type="Script" path="res://Scripts/Entities/Robot.gd" id="1_ak772"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e6hkh"]
+size = Vector2(2, 20)
+
+[node name="Robot" type="CharacterBody3D"]
+script = ExtResource("1_ak772")
+
+[node name="AimLine" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.062, -13.3975)
+visible = false
+mesh = SubResource("PlaneMesh_e6hkh")
