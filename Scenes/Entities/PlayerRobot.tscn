@@ -1,8 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl22qxswjq6fr"]
+[gd_scene load_steps=5 format=3 uid="uid://cl22qxswjq6fr"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/PlayerRobot.gd" id="1_bl30l"]
 [ext_resource type="PackedScene" uid="uid://vw0r2i5jj66v" path="res://Scenes/UI/PlayerHUD.tscn" id="2_tf03u"]
 [ext_resource type="PackedScene" uid="uid://bvw4e8a65mkw5" path="res://Scenes/Entities/Robot.tscn" id="3_vmlic"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_k0562"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:scale")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("Robot:health")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("Robot:energy")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath("Robot:energyRefillAllowed")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+properties/6/path = NodePath("Robot:capturableEnemies")
+properties/6/spawn = true
+properties/6/replication_mode = 1
 
 [node name="PlayerRobot" type="CharacterBody3D"]
 script = ExtResource("1_bl30l")
@@ -12,3 +35,6 @@ script = ExtResource("1_bl30l")
 [node name="PlayerHud" parent="PlayerHudCanvas" instance=ExtResource("2_tf03u")]
 
 [node name="Robot" parent="." instance=ExtResource("3_vmlic")]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_k0562")

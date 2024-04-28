@@ -6,7 +6,7 @@
 size = Vector3(3.73753, 4.70483, 5.13163)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_btmj3"]
-radius = 20.0
+radius = 30.0
 
 [node name="Mech" type="CharacterBody3D"]
 

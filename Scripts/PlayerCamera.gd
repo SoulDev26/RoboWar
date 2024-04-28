@@ -8,4 +8,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if not is_instance_valid(playerRobot):
+		return
+		
 	position = playerRobot.position + offset

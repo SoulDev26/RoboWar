@@ -1,10 +1,9 @@
 extends CharacterBody3D
 
-var modelNode = null
+@export var modelNode: Node3D
 
 signal EnergyChanged(energy: int)
-
-var isEnemy = false
+signal Dead
 
 @export var FIRE_DISTANCE = 20.0
 @export var BULLET_SPEED = 10.0
@@ -18,18 +17,18 @@ var bulletScene = preload("res://Scenes/Entities/Bullet.tscn")
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @export var MAX_HEALTH = 10
-var health = MAX_HEALTH
+@export var health = MAX_HEALTH
 
 @export var MAX_ENERGY = 20
-var energy = MAX_ENERGY
+@export var energy = MAX_ENERGY
 
 
 var fireTime: int
 var bulletRefillTime: int
-var energyRefillAllowed = false
+@export var energyRefillAllowed = false
 
-var capturableEnemies: Array[Node3D] = []
-var capturedEnemy = null
+@export var capturableEnemies: Array[Node3D] = []
+@export var capturedEnemy: Node3D
 
 @onready var parentNode: CharacterBody3D = get_parent()
 @onready var animationPlayerNode: AnimationPlayer
@@ -48,6 +47,7 @@ func Hit(damage: int) -> void:
 	health -= damage
 	
 	if health <= 0:
+		Dead.emit()
 		queue_free()
 
 func Walk(dir: Vector3, speed: float = SPEED) -> void:

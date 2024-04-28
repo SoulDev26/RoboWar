@@ -311,4 +311,12 @@ transform = Transform3D(0.0348995, -0.0871026, 0.995588, 0, 0.996195, 0.0871557,
 fov = 83.3937
 size = 1.97
 
+[node name="HostCheckBox" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 490.0
+offset_right = 490.0
+offset_bottom = 570.0
+text = "Host"
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

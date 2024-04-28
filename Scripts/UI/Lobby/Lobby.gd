@@ -14,6 +14,11 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_start_button_pressed() -> void:
+	if $HostCheckBox.button_pressed :
+		Multiplayer.CreateServer()
+	else:
+		Multiplayer.CreateClient()
+	
 	self.visible = false
 	var gameNode = gameScene.instantiate()
 	gameNode.LoadMap('res://Scenes/Maps/Test.tscn')
